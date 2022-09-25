@@ -28,6 +28,10 @@ public class Book implements Serializable {
 	@Column(name = "title")
 	private String title;
 
+	@NotBlank(message = "Price is mandatory")
+	@Column(name = "price")
+	private double price;
+
 	public Book() {
 		super();
 	}
@@ -52,6 +56,14 @@ public class Book implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }

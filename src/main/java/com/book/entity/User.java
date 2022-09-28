@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -17,11 +16,9 @@ public class User {
 	private long id;
 
 	@Column(name = "username")
-	@NotBlank(message = "Username is mandatory")	
 	private String username;
 
 	@Column(name = "password")
-	@NotBlank(message = "Password is mandatory")
 	private String password;
 
 	@Column(name = "name")

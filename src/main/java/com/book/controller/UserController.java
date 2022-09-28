@@ -29,7 +29,8 @@ public class UserController {
 		UserDetails currentUser = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		User user = userService.getUserByUsername(currentUser.getUsername());
 		if (user == null) {
-			throw new UserNotFoundException(String.format("User with username %s not found", currentUser.getUsername()));
+			throw new UserNotFoundException(
+					String.format("User with username %s not found", currentUser.getUsername()));
 		}
 		return user;
 	}

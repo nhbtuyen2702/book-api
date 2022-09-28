@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "books")
@@ -18,17 +17,14 @@ public class Book implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 
 	@Column(name = "isbn")
-	@NotBlank(message = "Isbn is mandatory")
 	private String isbn;
 
-	@NotBlank(message = "Title is mandatory")
 	@Column(name = "title")
 	private String title;
 
-	@NotBlank(message = "Price is mandatory")
 	@Column(name = "price")
 	private double price;
 

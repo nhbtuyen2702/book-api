@@ -15,7 +15,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "username")
+	@Column(name = "user_name")
 	private String username;
 
 	@Column(name = "password")
@@ -32,16 +32,6 @@ public class User {
 
 	public User() {
 		super();
-	}
-
-	public User(long id, String username, String password, String name, String email, String role) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.role = role;
 	}
 
 	public long getId() {

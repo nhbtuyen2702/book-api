@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "books")
@@ -28,14 +29,22 @@ public class Book implements Serializable {
 	@Column(name = "price")
 	private double price;
 
+	@Transient
+	private int quantity;
+
+	@Transient
+	private double amount;
+
 	public Book() {
 		super();
 	}
 
-	public Book(String isbn, String title) {
-		super();
-		this.isbn = isbn;
-		this.title = title;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getIsbn() {
@@ -60,6 +69,22 @@ public class Book implements Serializable {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }

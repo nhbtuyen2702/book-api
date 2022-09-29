@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orderdetails")
+@Table(name = "order_details")
 public class OrderDetail implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -32,26 +32,16 @@ public class OrderDetail implements Serializable {
 	@Column(name = "amount")
 	private double amount;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "order_id", foreignKey = @ForeignKey(name = "order_detail_ord_fk"))
 	private Order order;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "book_id", foreignKey = @ForeignKey(name = "order_detail_book_fk"))
 	private Book book;
 
 	public OrderDetail() {
 		super();
-	}
-
-	public OrderDetail(long id, int quantity, double price, double amount, Order order, Book book) {
-		super();
-		this.id = id;
-		this.quantity = quantity;
-		this.price = price;
-		this.amount = amount;
-		this.order = order;
-		this.book = book;
 	}
 
 	public long getId() {

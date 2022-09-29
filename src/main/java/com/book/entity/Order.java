@@ -22,30 +22,24 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "ordernum")
+	@Column(name = "order_num")
 	private int orderNum;
 
-	@Column(name = "orderdate")
+	@Column(name = "order_date")
 	@Temporal(TemporalType.DATE)
 	private Date orderDate;
 
-	@Column(name = "amount")
-	private double amount;
+	@Column(name = "total_quantity")
+	private int totalQuantity;
 
-	@Column(name = "username", length = 255, nullable = false)
-	private String username;
+	@Column(name = "total_amount")
+	private double totalAmount;
+
+	@Column(name = "name", length = 255, nullable = false)
+	private String name;
 
 	public Order() {
 		super();
-	}
-
-	public Order(long id, int orderNum, Date orderDate, double amount, String username) {
-		super();
-		this.id = id;
-		this.orderNum = orderNum;
-		this.orderDate = orderDate;
-		this.amount = amount;
-		this.username = username;
 	}
 
 	public long getId() {
@@ -72,20 +66,28 @@ public class Order implements Serializable {
 		this.orderDate = orderDate;
 	}
 
-	public double getAmount() {
-		return amount;
+	public int getTotalQuantity() {
+		return totalQuantity;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setTotalQuantity(int totalQuantity) {
+		this.totalQuantity = totalQuantity;
 	}
 
-	public String getUsername() {
-		return username;
+	public double getTotalAmount() {
+		return totalAmount;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

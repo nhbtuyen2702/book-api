@@ -12,8 +12,6 @@ public interface BookService {
 
 	Book findByIsbn(String isbn);
 
-	Book saveBook(Book book);
-
-	void deleteBook(Book book);
+	Book createOrUpdateBook(Book book);
 
 }

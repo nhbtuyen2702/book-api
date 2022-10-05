@@ -36,18 +36,9 @@ public class BookController {
 	}
 
 	@PostMapping("/books")
-	public Book createBook(@Valid @RequestBody Book bookRequest) {
-		Book newBook = bookService.saveBook(bookRequest);
+	public Book createOrUpdateBook(@Valid @RequestBody Book bookRequest) {
+		Book newBook = bookService.createOrUpdateBook(bookRequest);
 		return newBook;
-	}
-
-	@DeleteMapping("/books/{isbn}")
-	public void deleteBook(@PathVariable String isbn) {
-		Book book = bookService.findByIsbn(isbn);
-		if (book == null) {
-			throw new BookNotFoundException(String.format("Book with isbn %s not found", isbn));
-		}
-		bookService.deleteBook(book);
 	}
 
 }
